@@ -1,0 +1,15 @@
+[Unit]
+Description=Sendspin MPRIS Proxy
+After=dbus.service
+Wants=dbus.service
+
+[Service]
+ExecStart=/home/pi/.local/bin/sendspin-mpris-proxy
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sendspin-mpris-proxy
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
