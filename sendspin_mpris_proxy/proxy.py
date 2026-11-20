@@ -62,7 +62,7 @@ async def _run():
 
         status = matches.group(1)
         _LOGGER.info(f"Set Playback Status: {status}")
-        player.set_playback_status(status)
+        player.playback_status = status
 
         # Sleep to allow async tasks to run before blocking again
         # TODO might want to re-eval aiofiles
