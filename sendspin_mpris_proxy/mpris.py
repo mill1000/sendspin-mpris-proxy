@@ -1,7 +1,7 @@
+from const import PlaybackStatus
 from dbus_fast import PropertyAccess
 from dbus_fast.service import ServiceInterface, dbus_property
 
-from const import PlaybackStatus
 
 class MediaPlayer2Interface(ServiceInterface):
     """MPRIS MediaPlayer2 Interface"""
@@ -50,8 +50,7 @@ class MediaPlayer2PlayerInterface(ServiceInterface):
             return
 
         self._playback_status = status
-        self.emit_properties_changed(
-            {"PlaybackStatus": self._playback_status})
+        self.emit_properties_changed({"PlaybackStatus": self._playback_status})
 
     # Indicate we can't be controlled in any way
     @dbus_property(name="CanControl", access=PropertyAccess.READ)
@@ -77,4 +76,3 @@ class MediaPlayer2PlayerInterface(ServiceInterface):
     @dbus_property(name="CanSeek", access=PropertyAccess.READ)
     def can_seek(self) -> "b":
         return False
-

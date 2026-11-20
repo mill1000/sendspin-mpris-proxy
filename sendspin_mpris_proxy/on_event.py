@@ -3,13 +3,10 @@ import stat
 
 from const import PlaybackStatus
 
-SUPPORTED_EVENTS = {
-    "stop": PlaybackStatus.STOPPED,
-    "start": PlaybackStatus.PLAYING
-}
+SUPPORTED_EVENTS = {"stop": PlaybackStatus.STOPPED, "start": PlaybackStatus.PLAYING}
 
 try:
-    event = os.environ['SENDSPIN_EVENT']
+    event = os.environ["SENDSPIN_EVENT"]
 except KeyError:
     print(f"No SENDSPIN_EVENT environment variable set.")
     exit()

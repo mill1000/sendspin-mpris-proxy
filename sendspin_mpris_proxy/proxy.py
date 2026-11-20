@@ -7,14 +7,11 @@ import stat
 from dbus_fast import BusType
 from dbus_fast.aio import MessageBus
 
-
 _LOGGER = logging.getLogger("sendspin-mpris-proxy")
 
 
-
 async def _run():
-    logging.basicConfig(
-        format='%(levelname)s: %(message)s', level=logging.INFO)
+    logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
 
     # Connect to the system bus
     _LOGGER.info("Connecting to system bus.")
@@ -41,8 +38,15 @@ async def _run():
     except FileNotFoundError:
         pass
     os.mkfifo(fifo)
-    os.chmod(fifo, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP |
-             stat.S_IWGRP | stat.S_IROTH | stat.S_IWOTH)
+    os.chmod(
+        fifo,
+        stat.S_IRUSR
+        | stat.S_IWUSR
+        | stat.S_IRGRP
+        | stat.S_IWGRP
+        | stat.S_IROTH
+        | stat.S_IWOTH,
+    )
 
     while True:
         # Blocking IO should be ok since we don't need to interact
