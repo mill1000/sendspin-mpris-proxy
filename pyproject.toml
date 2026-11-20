@@ -1,0 +1,31 @@
+[project]
+name = "sendspin-mpris-proxy"
+description = "Proxy events from sendspin-cpp-cli events to MPRIS D-Bus signals."
+version = "1.0.0"
+readme = "README.md"
+authors = [
+  {name = "Tucker Kern", email = "tuckkern@gmail.com"},
+]
+requires-python = ">=3.12"
+license = {text = "MIT"}
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+  "dbus-next"
+]
+
+[project.urls]
+Repository = "https://github.com/mill1000/sendspin-mpris-proxy"
+Issues = "https://github.com/mill1000/sendspin-mpris-proxy/issues"
+
+[project.scripts]
+sendspin-mpris-proxy = "sendspin_mpris_proxy:main"
+sendspin-on-event = "sendspin_mpris_proxy:on_event"
+
