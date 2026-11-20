@@ -4,7 +4,7 @@ After=dbus.service
 Wants=dbus.service
 
 [Service]
-ExecStart=/home/pi/.local/bin/sendspin-mpris-proxy
+ExecStart=/usr/local/bin/sendspin-mpris-proxy
 StandardOutput=journal
 StandardError=journal
 SyslogIdentifier=sendspin-mpris-proxy
