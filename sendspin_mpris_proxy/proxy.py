@@ -7,6 +7,8 @@ import stat
 from dbus_fast import BusType
 from dbus_fast.aio import MessageBus
 
+from .mpris import MediaPlayer2Interface, MediaPlayer2PlayerInterface
+
 _LOGGER = logging.getLogger("sendspin-mpris-proxy")
 
 

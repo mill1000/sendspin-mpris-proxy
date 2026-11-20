@@ -1,6 +1,7 @@
-from const import PlaybackStatus
 from dbus_fast import PropertyAccess
 from dbus_fast.service import ServiceInterface, dbus_property
+
+from .const import PlaybackStatus
 
 
 class MediaPlayer2Interface(ServiceInterface):
