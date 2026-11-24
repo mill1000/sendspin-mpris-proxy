@@ -1,7 +1,11 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "sendspin-mpris-proxy"
 description = "Proxy events from sendspin-cpp-cli events to MPRIS D-Bus signals."
-version = "1.0.0"
+dynamic = ["version"]
 readme = "README.md"
 authors = [
   {name = "Tucker Kern", email = "tuckkern@gmail.com"},
@@ -21,6 +25,12 @@ dependencies = [
   "dbus-fast"
 ]
 
+[project.optional-dependencies]
+dev = [
+  "black>=24",
+  "isort>=5",
+]
+
 [project.urls]
 Repository = "https://github.com/mill1000/sendspin-mpris-proxy"
 Issues = "https://github.com/mill1000/sendspin-mpris-proxy/issues"
@@ -28,4 +38,14 @@ Issues = "https://github.com/mill1000/sendspin-mpris-proxy/issues"
 [project.scripts]
 sendspin-mpris-proxy = "sendspin_mpris_proxy.proxy:main"
 sendspin-on-event = "sendspin_mpris_proxy.on_event:main"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sendspin_mpris_proxy", "sendspin_mpris_proxy.*"]
+
+[tool.setuptools_scm]
+fallback_version = "0.0.0+local"
 
